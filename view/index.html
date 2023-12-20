@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Review Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/js/scripts.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .yellow{
+            color: #f39c12;
+        }
+        .rating {
+            display: inline-block;
+            unicode-bidi: bidi-override;
+            direction: rtl;
+        }
+
+        .rating input {
+            display: none;
+        }
+
+        .rating label {
+            cursor: pointer;
+            width: 1em;
+            font-size: 2em;
+            color: #ccc;
+            float: right;
+        }
+
+        .rating label:before {
+            content: '\2605';
+            padding: 0 0.2em;
+        }
+
+        .rating input:checked ~ label,
+        .rating label:hover,
+        .rating label:hover ~ label,
+        .rating input:checked ~ label:hover {
+            color: #f39c12;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h2 class="text-center mb-4">Company Review Form</h2>
+            <form>
+                <div class="form-group">
+                    <label for="companyName">Company Name</label>
+                    <input type="text" class="form-control" id="companyName" placeholder="Enter company name" required>
+                </div>
+                <div class="form-group">
+                    <label for="pros">Pros</label>
+                    <textarea class="form-control" id="pros" rows="3" placeholder="List the pros of the company"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="cons">Cons</label>
+                    <textarea class="form-control" id="cons" rows="3" placeholder="List the cons of the company"></textarea>
+                </div>
+                <div class="form-group">
+                    <p class="mb-0">Rating</p>
+                    <div class="rating">
+                        <input type="radio" id="star5" name="rating" value="5">
+                        <label for="star5"></label>
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4"></label>
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3"></label>
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2"></label>
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1"></label>
+                        <input type="radio" id="star0" name="rating" value="0" style="display: none">
+                    </div>
+                </div>
+                <button onclick="createRating(event)" type="submit" class="btn btn-primary w-100">Submit Review</button>
+            </form>
+
+            <!-- Search Bar -->
+            <h4 class="mt-4 text-center">Search Reviews</h4>
+            <div class="input-group">
+                <input type="text" class="form-control" id="searchInput" placeholder="Search by company name">
+                <button class="btn btn-primary" onclick="getRating()">Search</button>
+            </div>
+
+            <!-- Display Reviews -->
+            <div id="reviewsContainer" class="mt-4">
+                <!-- Reviews will be displayed here -->
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
