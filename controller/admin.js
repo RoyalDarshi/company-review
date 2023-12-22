@@ -36,7 +36,11 @@ module.exports.createRating=async (req,res,next)=>{
 }
 
 module.exports.getRating=(req,res,next)=>{
+<<<<<<< HEAD
     const name=req.body.name;
+=======
+    const name=req.params.name;
+>>>>>>> 77dcd5b (changes get rating method type)
     Company.findAll({where:{name:name}}).then(data=>{
         if(!data[0]){
             return res.status(201).json(undefined);

@@ -22,7 +22,11 @@ async function createRating(e) {
 }
 async function getRating(){
     const search=document.getElementById("searchInput");
+<<<<<<< HEAD
     await axios.post("http://localhost:3000/get-rating",{name: search.value}).then(res=>{
+=======
+    await axios.get(`http://localhost:3000/get-rating/${search.value}`).then(res=>{
+>>>>>>> 77dcd5b (changes get rating method type)
         createRatingRow(res.data,search.value);
     })
 }
