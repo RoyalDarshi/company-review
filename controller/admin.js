@@ -3,7 +3,6 @@ const path=require("path");
 const rootDir=require("../util/path");
 const Company=require("../model/company");
 const Rating=require("../model/rating");
-const {where} = require("sequelize");
 
 module.exports.sendFile=(req,res,next)=>{
     res.sendFile(path.join(rootDir,"view","index.html"))
@@ -36,11 +35,7 @@ module.exports.createRating=async (req,res,next)=>{
 }
 
 module.exports.getRating=(req,res,next)=>{
-<<<<<<< HEAD
-    const name=req.body.name;
-=======
     const name=req.params.name;
->>>>>>> 77dcd5b (changes get rating method type)
     Company.findAll({where:{name:name}}).then(data=>{
         if(!data[0]){
             return res.status(201).json(undefined);
